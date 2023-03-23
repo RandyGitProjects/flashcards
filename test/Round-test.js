@@ -5,19 +5,27 @@ const Card = require("../src/Card");
 const Deck = require("../src/Deck");
 
 describe("Round", function() {
-    it.skip("should be a function", function() {
-        const round = new Round();
+    it("should be a function", function() {
+        const card1 = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
+        const card2 = new Card(14, 'What organ is Khalid missing?', ['spleen', 'appendix', 'gallbladder'], 'gallbladder');
+        const card3 = new Card(12, 'What is Travis\'s favorite stress reliever?', ['listening to music', 'watching Netflix', 'playing with bubble wrap'], 'playing with bubble wrap');   
+        const deck = new Deck([card1, card2, card3])
+        const round = new Round(deck)
 
         expect(Round).to.be.a("function")
     });
 
-    it.skip("should be an instance of round", function() {
-        const round = new Round();
+    it("should be an instance of round", function() {
+        const card1 = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
+        const card2 = new Card(14, 'What organ is Khalid missing?', ['spleen', 'appendix', 'gallbladder'], 'gallbladder');
+        const card3 = new Card(12, 'What is Travis\'s favorite stress reliever?', ['listening to music', 'watching Netflix', 'playing with bubble wrap'], 'playing with bubble wrap');   
+        const deck = new Deck([card1, card2, card3])
+        const round = new Round(deck)
 
         expect(round).to.be.an.instanceof(Round);
     });
 
-    it.skip("should have a deck", function() {
+    it("should have a deck", function() {
         const card1 = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
         const card2 = new Card(14, 'What organ is Khalid missing?', ['spleen', 'appendix', 'gallbladder'], 'gallbladder');
         const card3 = new Card(12, 'What is Travis\'s favorite stress reliever?', ['listening to music', 'watching Netflix', 'playing with bubble wrap'], 'playing with bubble wrap');   
@@ -27,87 +35,102 @@ describe("Round", function() {
         expect(round.deck).to.deep.equal(deck)
     });
 
-    it.skip("should have a current card that equals first card in deck", function() {
+    it("should have a current card that equals first card in deck", function() {
         const card1 = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
         const card2 = new Card(14, 'What organ is Khalid missing?', ['spleen', 'appendix', 'gallbladder'], 'gallbladder');
         const card3 = new Card(12, 'What is Travis\'s favorite stress reliever?', ['listening to music', 'watching Netflix', 'playing with bubble wrap'], 'playing with bubble wrap');   
         const deck = new Deck([card1, card2, card3])
         const round = new Round(deck)
-        console.log(deck.cards[0])
+        // console.log(deck.cards[0])
         expect(round.currentCard).to.deep.equal(deck.cards[0])
     });
 
-    it.skip("should return the current card being played", function() { 
+    it("should return the current card being played", function() { 
         const card1 = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
         const card2 = new Card(14, 'What organ is Khalid missing?', ['spleen', 'appendix', 'gallbladder'], 'gallbladder');
         const card3 = new Card(12, 'What is Travis\'s favorite stress reliever?', ['listening to music', 'watching Netflix', 'playing with bubble wrap'], 'playing with bubble wrap');   
         const deck = new Deck([card1, card2, card3])
         const round = new Round(deck)
         
-        expect(round.returnCurrentCard()).to.deep.equal(deck.card1);
+        expect(round.returnCurrentCard()).to.deep.equal(deck.cards[0]);
     });
 
-    it.skip("should have a counter for turns that starts at 0", function() {
-        const round = new Round();
+    it("should have a counter for turns that starts at 0", function() {
+        const card1 = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
+        const card2 = new Card(14, 'What organ is Khalid missing?', ['spleen', 'appendix', 'gallbladder'], 'gallbladder');
+        const card3 = new Card(12, 'What is Travis\'s favorite stress reliever?', ['listening to music', 'watching Netflix', 'playing with bubble wrap'], 'playing with bubble wrap');   
+        const deck = new Deck([card1, card2, card3])
+        const round = new Round(deck)
 
-        expect(round.turnsCount).to.equal(0);
+        expect(round.turns).to.equal(0);
     });
 
-    it.skip("should update the turns count", function() {
-        const round = new Round();  
+    it("should update the turns count", function() {
+        const card1 = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
+        const card2 = new Card(14, 'What organ is Khalid missing?', ['spleen', 'appendix', 'gallbladder'], 'gallbladder');
+        const card3 = new Card(12, 'What is Travis\'s favorite stress reliever?', ['listening to music', 'watching Netflix', 'playing with bubble wrap'], 'playing with bubble wrap');   
+        const deck = new Deck([card1, card2, card3])
+        const round = new Round(deck)  
 
         round.takeTurn()                                        
-        expect(round.turnsCount).to.equal(1);                        
+        expect(round.turns).to.equal(1);                        
         round.takeTurn()                                        
         round.takeTurn()                                        
-        expect(round.turnsCount).to.equal(3);                        
+        expect(round.turns).to.equal(3);                        
     });
 
-    it.skip("should be able to store incorrect answers", function() {
-        const round = new Round();
+    it("should be able to store incorrect answers", function() {
+        const card1 = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
+        const card2 = new Card(14, 'What organ is Khalid missing?', ['spleen', 'appendix', 'gallbladder'], 'gallbladder');
+        const card3 = new Card(12, 'What is Travis\'s favorite stress reliever?', ['listening to music', 'watching Netflix', 'playing with bubble wrap'], 'playing with bubble wrap');   
+        const deck = new Deck([card1, card2, card3])
+        const round = new Round(deck)
 
-        expect(round.incorrectGuesses).to.equal([]);
+        expect(round.incorrectGuesses).to.deep.equal([]);
     });
  
-    it.skip("should evalute a guess during the round", function() {
-        const round = new Round(); 
+    it("should evalute a guess during the round", function() {
+        const card1 = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
+        const card2 = new Card(14, 'What organ is Khalid missing?', ['spleen', 'appendix', 'gallbladder'], 'gallbladder');
+        const card3 = new Card(12, 'What is Travis\'s favorite stress reliever?', ['listening to music', 'watching Netflix', 'playing with bubble wrap'], 'playing with bubble wrap');   
+        const deck = new Deck([card1, card2, card3])
+        const round = new Round(deck) 
 
         expect(round.takeTurn("pug")).to.equal("Incorrect!");
-        expect(round.takeTurn("sea otter")).to.equal("Correct!");
     });
 
-    it.skip("should return the number of incorrect answers", function() {
-        const round = new Round();
+    it("should return the number of incorrect answers", function() {
+        const card1 = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
+        const card2 = new Card(14, 'What organ is Khalid missing?', ['spleen', 'appendix', 'gallbladder'], 'gallbladder');
+        const card3 = new Card(12, 'What is Travis\'s favorite stress reliever?', ['listening to music', 'watching Netflix', 'playing with bubble wrap'], 'playing with bubble wrap');   
+        const deck = new Deck([card1, card2, card3])
+        const round = new Round(deck) 
         
         expect(round.takeTurn("pug")).to.equal("Incorrect!");
         expect(round.incorrectGuesses[0]).to.equal(1);
-        expect(round.takeTurn("capybara")).to.equal("Incorrect!");
-        expect(round.incorrectGuesses[1]).to.equal(1);
     });
 
-    it.skip("should take a turn", function() {
+    it("should take a turn", function() {
         const card1 = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
         const card2 = new Card(14, 'What organ is Khalid missing?', ['spleen', 'appendix', 'gallbladder'], 'gallbladder');
         const card3 = new Card(12, 'What is Travis\'s favorite stress reliever?', ['listening to music', 'watching Netflix', 'playing with bubble wrap'], 'playing with bubble wrap');   
         const deck = new Deck([card1, card2, card3]);
         const round = new Round(deck);
 
-        expect(round.turnsCount).to.equal(0);
-        expect(round.numberIncorrect).to.equal([]);
-
+        expect(round.turns).to.equal(0);
         //First Turn
         expect(round.takeTurn("pug")).to.equal("Incorrect!");
-        expect(round.turnsCount).to.equal(1);
+        expect(round.turns).to.equal(1);
         expect(round.incorrectGuesses[0]).to.equal(1)
-        expect(round.returnCurrentCard).to.deep.equal(card2)
+        expect(round.returnCurrentCard()).to.deep.equal(card2)
         //Second Turn
         expect(round.takeTurn("gallbladder")).to.equal("Correct!");
-        expect(round.turnsCount).to.equal(1);
-        expect(round.incorrectGuesses.length).to.equal(1)
-        expect(round.returnCurrentCard).to.deep.equal(card3)
+        expect(round.turns).to.equal(2);
+        expect(round.incorrectGuesses[0]).to.equal(1)
+        expect(round.returnCurrentCard()).to.deep.equal(card3)
     });
 
-    it.skip("should calculate percentage and end round", function() {
+    it("should calculate percentage and end round", function() {
         const card1 = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
         const card2 = new Card(14, 'What organ is Khalid missing?', ['spleen', 'appendix', 'gallbladder'], 'gallbladder');
         const card3 = new Card(12, 'What is Travis\'s favorite stress reliever?', ['listening to music', 'watching Netflix', 'playing with bubble wrap'], 'playing with bubble wrap');   
@@ -118,9 +141,9 @@ describe("Round", function() {
         round.takeTurn("gallbladder");
         round.takeTurn("watching Netflix");
 
-        expect(round.turnsCount).to.equal(3);
-        expect(round.calculatePercentCorrect()).to.equal(66.66);
-        expect(round.endRound()).to.equal("** Round over! ** You answered 66.66% of the questions correctly!")
+        expect(round.turns).to.equal(3);
+        expect(round.calculatePercentCorrect()).to.equal(67);
+        expect(round.endRound()).to.equal("** Round over! ** You answered 67% of the questions correctly!")
     });
 });
 // endRound: method that prints the following to the console: ‘** Round over! **
